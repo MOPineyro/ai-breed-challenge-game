@@ -1,0 +1,31 @@
+/* glossyButton.css */
+.glossy-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 30px; /* Adjust the border-radius to make the button more rounded */
+  }
+  
+  .glossy-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent); /* Use radial gradient for a softer, more bubbly effect */
+    z-index: -1;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    opacity: 0.7;
+    border-radius: 50%; /* Make the gradient circular */
+  }
+  
+  .glossy-btn:hover::before {
+    top: -25%;
+    left: -25%;
+    right: -25%;
+    bottom: -25%;
+    opacity: 0;
+  }
+  

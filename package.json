@@ -1,0 +1,49 @@
+{
+  "name": "ai-breed-challenge-game",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "cf_dev": "tsc && vite build && npx wrangler pages dev --live-reload=true",
+    "cf_dev:watch": "nodemon -w src -w functions -e ts,tsx,js,jsx,json --exec npm run cf_dev",
+    "browser-sync": "browser-sync start --proxy 'localhost:8788' --files 'dist/**/*.*' --reload-delay 2000",
+    "dev:watch": "concurrently \"npm:cf_dev:watch\" \"npm:browser-sync\"",
+    "deploy": "tsc && vite build && npx wrangler pages deploy",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.563.0",
+    "@cfworker/csv": "^1.12.6",
+    "@rive-app/react-canvas": "^4.9.0",
+    "axios": "^1.6.8",
+    "crypto": "^1.0.1",
+    "csv-parse": "^5.5.5",
+    "daisyui": "^4.10.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "replicate": "^0.29.1",
+    "util": "^0.12.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240423.0",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "browser-sync": "^3.0.2",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "nodemon": "^3.1.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0"
+  }
+}
